@@ -4,7 +4,7 @@
 
   tasks:
   - name: remove current container
-    command: docker rm -f simplete-devops-container
+    command: docker rm -f simple-devops-container
     ignore_errors: yes
 
   - name: build docker image using war file
@@ -12,4 +12,4 @@
     args:
       chdir: /opt/docker
   - name: create container from new image
-    command: docker run -d --name simplete-devops-container -p 8080:8080 simple-devops-image
+    command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
