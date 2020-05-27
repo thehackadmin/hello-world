@@ -4,7 +4,7 @@
 
   tasks:
   - name: remove current image
-    command: docker rmi thehackadmin/simple-devops-image
+    command: docker rmi thehackadmin/simple-devops-image simple-devops-image
     ignore_errors: yes
 
   - name: build docker image using war file
@@ -17,6 +17,10 @@
 
   - name: push container to docker hub
     command: docker push thehackadmin/simple-devops-image
+    
+#  cannot have password in public git repo... moved to jenkins job
+#  - name: login to docker hub
+#    command: docker login -u thehackadmin
     
   - name: remove current image
     command: docker rmi simple-devops-image
