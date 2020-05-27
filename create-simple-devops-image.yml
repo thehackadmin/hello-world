@@ -13,10 +13,10 @@
       chdir: /opt/docker
 
   - name: create docker tag
-    command: docker tag simple-devops-image thehackadmin/simple-devops-image
+    command: docker tag simple-devops-image 4art4/simple-devops-image:latest
 
   - name: push container to docker hub
-    command: docker push 4art4/simple-devops-image
+    command: docker push 4art4/simple-devops-image:latest
     
 #  cannot have password in public git repo... moved to jenkins job
 #  - name: login to docker hub
