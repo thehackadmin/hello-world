@@ -2,8 +2,8 @@
 - hosts: docker
   become: true
 
+  tasks:
 #  did not work... I need to learn more ansible
-#  tasks:
 #  - name: add self to docker group if needed
 #    command: if ! groups|grep docker > /dev/null 2>&1; then sudo usermod -aG docker ansadmin ; fi
 
