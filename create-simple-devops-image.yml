@@ -1,6 +1,6 @@
 ---
 - hosts: ansible
-  become: true
+  become: false
 
   tasks:
   - name: remove current image
@@ -17,6 +17,7 @@
 
   - name: push container to docker hub
     command: docker push 4art4/simple-devops-image:latest
+    ignore_errors: no
     
 #  cannot have password in public git repo... moved to jenkins job
 #  - name: login to docker hub
