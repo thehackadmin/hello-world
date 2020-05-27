@@ -1,13 +1,18 @@
 ---
 - hosts: docker
-  become: false
+  become: true
 
-  tasks:
-  - name: add self to docker group if needed
-    command: if ! groups|grep docker > /dev/null 2>&1; then sudo usermod -aG docker ansadmin ; fi
+#  did not work... I need to learn more ansible
+#  tasks:
+#  - name: add self to docker group if needed
+#    command: if ! groups|grep docker > /dev/null 2>&1; then sudo usermod -aG docker ansadmin ; fi
 
   - name: remove current container
     command: docker rm -f simple-devops-container
+    ignore_errors: yes
+
+  - name: remove current container
+    command: docker rmi 4art4/simple-devops-image:latest
     ignore_errors: yes
 
   - name: create container from new image
