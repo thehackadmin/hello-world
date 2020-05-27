@@ -1,0 +1,11 @@
+---
+- hosts: docker
+  become: true
+
+  tasks:
+  - name: build docker image using war file
+    command: docker build -t simple-devops-image .
+    args:
+      chdir: /opt/docker
+  - name: create container from new image
+    command: docker run -d --name simplete-devops-container -p 8080:8080 simple-devops-image
